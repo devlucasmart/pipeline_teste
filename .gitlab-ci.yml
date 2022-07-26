@@ -30,5 +30,5 @@ Verificar Compose:
   tags: 
     - shell
   script:
-    - docker-composer config -q
+    - docker-compose config -q
     - echo $?
