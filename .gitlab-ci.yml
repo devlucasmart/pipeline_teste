@@ -17,10 +17,10 @@ sonarcloud-check:
       - .sonar/cache
   script:
     - sonar-scanner
-  only:
-    variables:
-      - $EXECUTAR == "only1"#"deploy"
-      - $EXECUTAR == "only2"#"qualidade"
+  #only:
+    #variables:
+      #- $EXECUTAR == "only1"#"deploy"
+      #- $EXECUTAR == "only2"#"qualidade"
 Verificar Compose:
   stage: qualidade
   only: 
