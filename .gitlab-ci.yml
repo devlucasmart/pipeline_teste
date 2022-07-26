@@ -15,12 +15,12 @@ sonarcloud-check:
     key: "${CI_JOB_NAME}"
     paths:
       - .sonar/cache
-  #script:
-    #- sonar-scanner
-  #only:
-    #variables:
-      #- $EXECUTAR == "only1"#"deploy"
-      #- $EXECUTAR == "only2"#"qualidade"
+  script:
+    - sonar-scanner
+  only:
+    variables:
+      - $EXECUTAR == "deploy"
+      - $EXECUTAR == "qualidade"
 Verificar Compose:
   stage: qualidade
   only: 
