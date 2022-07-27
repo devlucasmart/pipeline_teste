@@ -1,5 +1,5 @@
 ### Resumo do projeto
-Este projeto tem como pilar "a qualidade, mais que quantidade de horas". são exemplos simplificados, sem enrolação, pouca teoria e muita mão na massa.
+Esse projeto tem como objetivo principal a criação de um pipeline estudando todos seus passos e com bots de notificação do Telegram e do Teams
 
 ### fontes:
 - Gitlab integrado ao Teams    
