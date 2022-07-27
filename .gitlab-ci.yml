@@ -20,8 +20,8 @@ sonarcloud-check:
     - sonar-scanner
   only:
     variables:
-      - $EXECUTAR == "deploy"
-      - $EXECUTAR == "qualidade"
+      - $EXECUTAR == "only1" #"deploy"
+      - $EXECUTAR == "only2" #"qualidade"
 Verificar Compose:
   stage: qualidade
   only: 
@@ -41,14 +41,14 @@ build:
   only:
     variables:
       - $EXECUTAR == "deploy"
-  scripts:
-    - | 
+  script:
+    - |
         if [ -e "/storage/wordpress/html" ]
         then
-          echo "o diretorio existe"
+          echo " o diretorio existe"
           sudo rsync -avh --progress wordpress/* /storage/wordpress/html/
         else
-          echo "o diretorio não existe, vamos cria-lo e fazer o deploy"
+          echo " o diretorio não existe, vamos cria-lo e fazer deploy"
           sudo mkdir -p /storage/wordpress/html/
           sudo rsync -avh --progress wordpress/* /storage/wordpress/html/
         fi
