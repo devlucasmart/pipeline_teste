@@ -22,8 +22,7 @@ sonarcloud-check:
   script:
     - sonar-scanner
   only: &varqualidade
-    variables:
-      - $EXECUTAR == "deploy"
+    variables:      
       - $EXECUTAR == "qualidade"
 Verificar Compose:
   stage: qualidade
