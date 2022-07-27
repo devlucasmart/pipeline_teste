@@ -1,5 +1,6 @@
 stages:
     - qualidade
+    - build
 variables:
   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
@@ -32,3 +33,22 @@ Verificar Compose:
   script:
     - docker-compose config -q
     - echo $?
+
+build:
+  stage: build
+  tags:
+    - shell
+  only:
+    variables:
+      - $EXECUTAR == "deploy"
+  scripts:
+    - | 
+        if [ -e "/storage/wordpress/html" ]
+        then
+          echo "o diretorio existe"
+          sudo rsync -avh --progress wordpress/* /storage/wordpress/html/
+        else
+          echo "o diretorio não existe, vamos cria-lo e fazer o deploy"
+          sudo mkdir -p /storage/wordpress/html/
+          sudo rsync -avh --progress wordpress/* /storage/wordpress/html/
+        fi
