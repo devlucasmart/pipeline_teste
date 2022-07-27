@@ -78,7 +78,7 @@ Verificar deploy:
     - "Deploy Wordpress"
   script:
     - sleep 5
-    - curl -v http://172.168.1.213:80001/
+    - curl -v http://172.168.1.213:8000/
     - echo $?
 Notificar Sucesso:
   stage: notificacao
