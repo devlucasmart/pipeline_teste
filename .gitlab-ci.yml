@@ -66,3 +66,16 @@ Deploy Wordpress:
     - docker-compose down
     - sleep 10
     - docker-compose up -d
+Verificar deploy:
+  stage: deploy
+  tags:
+    - shell
+  only:
+    variables:
+      - $EXECUTAR == "deploy"
+  dependencies:
+    - "Deploy Wordpress"
+  script:
+    - sleep 5
+    - curl -v http://172.168.1.213:8000/
+    - echo $?
